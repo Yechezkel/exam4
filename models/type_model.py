@@ -7,6 +7,6 @@ class Type(db.Model):
 
     def to_dict(self):
         return {
-            'id': self.id,
+            'type_id': self.id,
             'type': self.type
         }

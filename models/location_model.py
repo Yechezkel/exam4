@@ -9,12 +9,14 @@ class Location(db.Model):
     latitude = db.Column(db.String(80), nullable=False)
     city_id = db.Column(db.Integer, db.ForeignKey('Cities.id'), nullable=True)
 
+    city = db.relationship('City', backref='locations', lazy=True)
+
     __table_args__ = (UniqueConstraint('longitude', 'latitude', name='uix_Location'),)
 
     def to_dict(self):
         return {
-            'id': self.id,
+            'location_id': self.id,
             'longitude': self.longitude,
             'latitude': self.latitude,
-            'city_id': self.city_id
+            'city': self.city.to_dict() if self.city else None
         }

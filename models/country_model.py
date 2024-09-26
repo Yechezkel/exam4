@@ -5,8 +5,10 @@ class Country(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False, unique=True)
 
+
+
     def to_dict(self):
         return {
-            'id': self.id,
-            'name': self.name
+            'country_id': self.id,
+            'country_name': self.name
         }

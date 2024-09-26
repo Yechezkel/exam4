@@ -10,6 +10,6 @@ class Industry(db.Model):
 
     def to_dict(self):
         return {
-            'id': self.id,
+            'industry_id': self.id,
             'industry': self.industry
         }
